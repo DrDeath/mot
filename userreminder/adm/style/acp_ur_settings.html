@@ -1,0 +1,141 @@
+<!-- INCLUDE overall_header.html -->
+
+<h1>{L_SETTINGS}</h1>
+<p>{L_ACP_USERREMINDER_SETTINGS_EXPLAIN}</p>
+
+<form id="acp_userreminder_settings" method="post" action="{U_ACTION}">
+	<fieldset>
+		<legend>{L_ACP_USERREMINDER_TIME_SETTINGS_TITLE}</legend>
+		<p>{L_ACP_USERREMINDER_TIME_SETTING_TEXT}</p>
+        <dl>
+            <dt><label for="mot_ur_inactive_days">{L_ACP_USERREMINDER_INACTIVE}{L_COLON}</label></dt>
+            <dd><input id="mot_ur_inactive_days" type="text" size="3" maxlength="3" name="mot_ur_inactive_days" onblur="checkInput('mot_ur_inactive_days', numeralMatch, 70, true)" value="{ACP_USERREMINDER_INACTIVE_DAYS}" /></dd>
+        </dl>
+        <dl>
+            <dt><label for="mot_ur_days_reminded">{L_ACP_USERREMINDER_DAYS_REMINDED}{L_COLON}</label></dt>
+            <dd><input id="mot_ur_days_reminded" type="text" size="3" maxlength="3" name="mot_ur_days_reminded" onblur="checkInput('mot_ur_days_reminded', numeralMatch, 10, true)" value="{ACP_USERREMINDER_DAYS_REMINDED}" /></dd>
+        </dl>
+<!--		<dl>
+			<dt><label for="mot_ur_autoremind">{L_ACP_USERREMINDER_AUTOREMIND}{L_COLON}</label></dt>
+			<dd><input id="mot_ur_autoremind" type="checkbox" name="mot_ur_autoremind" value="checked" {ACP_USERREMINDER_AUTOREMIND} /></dd>
+		</dl>-->
+ 		<dl>
+			<dt><label for="mot_ur_autoremind">{L_ACP_USERREMINDER_AUTOREMIND}{L_COLON}</label></dt>
+			<dd><label><input type="radio" class="radio" name="mot_ur_autoremind" value="1"<!-- IF ACP_USERREMINDER_AUTOREMIND --> id="mot_ur_autoremind" checked="checked"<!-- ENDIF --> /> {L_YES}</label>
+				<label><input type="radio" class="radio" name="mot_ur_autoremind" value="0"<!-- IF not ACP_USERREMINDER_AUTOREMIND --> id="mot_ur_autoremind" checked="checked"<!-- ENDIF --> /> {L_NO}</label></dd>
+		</dl>
+       <dl>
+            <dt><label for="mot_ur_days_until_deleted">{L_ACP_USERREMINDER_DAYS_UNTIL_DELETED}{L_COLON}</label></dt>
+            <dd><input id="mot_ur_days_until_deleted" type="text" size="3" maxlength="3" name="mot_ur_days_until_deleted" onblur="checkInput('mot_ur_days_until_deleted', numeralMatch, 10, true)" value="{ACP_USERREMINDER_DAYS_UNTIL_DELETED}" /></dd>
+        </dl>
+<!--		<dl>
+			<dt><label for="mot_ur_autodelete">{L_ACP_USERREMINDER_AUTODELETE}{L_COLON}</label></dt>
+			<dd><input id="mot_ur_autodelete" type="checkbox" name="mot_ur_autodelete" value="checked" {ACP_USERREMINDER_AUTODELETE} /></dd>
+		</dl>-->
+		<dl>
+			<dt><label for="mot_ur_autodelete">{L_ACP_USERREMINDER_AUTODELETE}{L_COLON}</label></dt>
+			<dd><label><input type="radio" class="radio" name="mot_ur_autodelete" value="1"<!-- IF ACP_USERREMINDER_AUTODELETE --> id="mot_ur_autodelete" checked="checked"<!-- ENDIF --> /> {L_YES}</label>
+				<label><input type="radio" class="radio" name="mot_ur_autodelete" value="0"<!-- IF not ACP_USERREMINDER_AUTODELETE --> id="mot_ur_autodelete" checked="checked"<!-- ENDIF --> /> {L_NO}</label></dd>
+		</dl>
+        <dl>
+            <dt><label for="mot_ur_protected_members">{L_ACP_USERREMINDER_PROTECTED_MEMBERS}{L_COLON}</label></dt>
+            <dd><input id="mot_ur_protected_members" type="text" size="70" maxlength="255" name="mot_ur_protected_members" onblur="cleanIds('mot_ur_protected_members')" value="{ACP_USERREMINDER_PROTECTED_MEMBERS}" /></dd>
+        </dl>
+	</fieldset>
+
+	<fieldset>
+		<legend>{L_ACP_USERREMINDER_MAIL_SETTINGS_TITLE}</legend>
+		<p>{L_ACP_USERREMINDER_EMAIL_BCC_TEXT}</p>
+		
+        <dl>
+            <dt><label for="mot_ur_email_bcc">{L_ACP_USERREMINDER_EMAIL_BCC}{L_COLON}</label></dt>
+            <dd><input id="mot_ur_email_bcc" type="text" size="70" maxlength="255" name="mot_ur_email_bcc" onblur="checkInput('mot_ur_email_bcc', emailMatch, '')" value="{ACP_USERREMINDER_EMAIL_BCC}" /></dd>
+        </dl>
+        <dl>
+            <dt><label for="mot_ur_email_cc">{L_ACP_USERREMINDER_EMAIL_CC}{L_COLON}</label></dt>
+            <dd><input id="mot_ur_email_cc" type="text" size="70" maxlength="255" name="mot_ur_email_cc" onblur="checkInput('mot_ur_email_cc', emailMatch, '')" value="{ACP_USERREMINDER_EMAIL_CC}" /></dd>
+        </dl>
+	</fieldset>
+	
+	<fieldset>
+        <p class="submit-buttons">
+            <input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />&nbsp;
+            <input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
+        </p>
+
+        {S_FORM_TOKEN}
+	</fieldset>
+	
+<!--
+	----- From here on we have everything needed to load, edit, preview and save the files containing email texts -----
+-->
+	<hr />
+	
+	<fieldset>
+		<legend>{L_ACP_USERREMINDER_MAIL_EDIT_TITLE}</legend>
+		<p>{L_ACP_USERREMINDER_MAIL_EDIT_TEXT}</p>
+		
+		<dl>
+			<dt><label for="mot_ur_mail_lang">{L_ACP_USERREMINDER_MAIL_LANG}{L_COLON}</label></dt>
+			<dd>
+				<select name="choose_lang" onchange="this.options[this.selectedIndex].value;">
+					<!-- BEGIN langs -->
+						<option value="{langs.VALUE}" <!-- IF CHOOSE_LANG == langs.VALUE --> selected <!-- ENDIF -->>{langs.VALUE}</option>
+					<!-- END langs -->
+				</select>
+			</dd>
+		</dl>
+		<dl>
+			<dt><label for="mot_ur_mail_lang">{L_ACP_USERREMINDER_MAIL_FILE}{L_COLON}</label></dt>
+			<dd>
+				<select name="choose_file" onchange="this.options[this.selectedIndex].value;">
+					<option value="reminder_one" <!-- IF CHOOSE_FILE == 'reminder_one' --> selected <!-- ENDIF -->>{L_ACP_USERREMINDER_MAIL_ONE}</option>
+					<option value="reminder_two" <!-- IF CHOOSE_FILE == 'reminder_two' --> selected <!-- ENDIF -->>{L_ACP_USERREMINDER_MAIL_TWO}</option>
+				</select>
+			</dd>
+		</dl>
+		
+		<dl>
+			<dt></dt>
+			<dd>
+				<input class="button1 load_file" type="submit" name="load_file" value="{L_ACP_USERREMINDER_MAIL_LOAD_FILE}" />
+			</dd>
+		</dl>
+		
+		<!-- IF SHOW_FILECONTENT == 1 -->
+		<dl>
+			<dt>
+				<p>{L_ACP_USERREMINDER_MAIL_PREVIEW}</p>
+			</dt>
+			
+			<dd>
+				<textarea name="mot_ur_mail_text" rows="10" cols="60" style="width: 95%;" enctype="application/x-www-form-urlencoded" onselect="storeCaret(this);" onclick="storeCaret(this);" onkeyup="storeCaret(this);" onfocus="initInsertions();">{ACP_USERREMINDER_EMAIL_TEXT}</textarea>
+				<input class="button2" type="submit" name="preview" value="{L_PREVIEW}" />
+			</dd>
+		</dl>
+		<script>window.scrollBy(0, 2500);</script>
+		<!-- ENDIF -->
+
+		<!-- IF SHOW_PREVIEW == 1 -->
+		<hr />
+		<dl>
+			<dt>
+				<label for="preview">{L_PREVIEW}</label>
+				<p>{L_ACP_USERREMINDER_PREVIEW_TEXT}</p>
+			</dt>
+			<dd id="preview">{PREVIEW_TEXT}</dd>
+		</dl>
+		
+		<hr />
+		<dl>
+			<dt></dt>
+			<dd>
+				<input class="button1 load_file" type="submit" name="save_file" value="{L_ACP_USERREMINDER_MAIL_SAVE_FILE}" />
+			</dd>
+		</dl>
+		<script>window.scrollBy(0, 2500);</script>
+		<!-- ENDIF -->
+	</fieldset>
+</form>
+
+<!-- INCLUDE overall_footer.html -->

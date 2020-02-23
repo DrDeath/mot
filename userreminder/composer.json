@@ -1,0 +1,39 @@
+{
+    "name": "mot/userreminder",
+    "type": "phpbb-extension",
+    "description": "Remind and manage inactive users",
+    "homepage": "https://www.mike-on-tour.com",
+    "version": "0.5.0",
+    "time": "2020-02-23 10:19:57",
+    "license": "GPL-2.0-only",
+    "authors": [
+        {
+            "name": "Michael Vormwald",
+            "email": "webmaster@mike-on-tour.de",
+            "homepage": "https://www.mike-on-tour.de",
+            "role": "Lead Developer"
+        },
+        {
+            "name": "Claude (stone23)",
+            "homepage": "https://www.encreuse.net/forum/index.php",
+            "role": "French translation"
+        }
+	],
+    "require": {
+        "php": ">=5.4"
+    },
+    "require-dev": {
+        "phpbb/epv": "dev-master"
+    },
+    "extra": {
+        "display-name": "Userreminder for phpbb",
+        "soft-require": {
+            "phpbb/phpbb": ">=3.2"
+        },
+        "version-check": {
+            "host": "www.mike-on-tour.com",
+            "directory": "/mot",
+            "filename": "mot_user_reminder.json"
+        }
+    }
+}

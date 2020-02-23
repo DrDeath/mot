@@ -1,0 +1,103 @@
+<!-- INCLUDE overall_header.html -->
+
+<h1>{L_ACP_USERREMINDER_REMINDER}</h1>
+<p>{L_ACP_USERREMINDER_REMINDER_EXPLAIN}</p>
+
+<form id="acp_userreminder_reminder" method="post" action="{U_ACTION}">
+	<!-- IF .pagination -->
+	<div class="pagination top-pagination">
+		<!-- INCLUDE pagination.html -->
+	</div>
+	<!-- ENDIF -->
+
+	<table class="table1 zebra-table fixed-width-table">
+		<thead>
+			<tr>
+				<th rowspan="2" style="width: 180px;">{L_USERNAME}</th>
+				<th rowspan="2" style="text-align: center;">{L_USER_POSTS}</th>
+				<th rowspan="2" style="text-align: center;">{L_JOINED}</th>
+				<th colspan="2" style="text-align: center;">{L_LAST_VISIT}</th>
+				<th colspan="2" style="text-align: center;">{L_ACP_USERREMINDER_REMINDER_ONE}</th>
+				<th colspan="2" style="text-align: center;">{L_ACP_USERREMINDER_REMINDER_TWO}</th>
+				<th rowspan="2" style="width: 70px; text-align: center;">{L_MARK_REMIND}</th>
+				<th rowspan="2" style="width: 70px; text-align: center;">{L_MARK_DELETE}</th>
+			</tr>
+			<tr>
+				<th style="text-align: center;">{L_AT_DATE}</th>
+				<th style="text-align: center;">{L_DAYS_AGO}</th>
+				<th style="text-align: center;">{L_AT_DATE}</th>
+				<th style="text-align: center;">{L_DAYS_AGO}</th>
+				<th style="text-align: center;">{L_AT_DATE}</th>
+				<th style="text-align: center;">{L_DAYS_AGO}</th>
+			</tr>
+		</thead>
+		<tbody>
+		<!-- BEGIN reminders -->
+			<tr>
+				<td><a href="{SERVER_CONFIG}/memberlist.php?mode=viewprofile&u={reminders.USER_ID}" target="_blank"><span style="font-weight: bold; color: #{reminders.USER_COLOUR};">{reminders.USERNAME}</span></a></td>
+				<td style="text-align: center;">{reminders.USER_POSTS}</td>
+				<td style="text-align: center;">{reminders.JOINED}</td>
+				<td style="text-align: center;">{reminders.LAST_VISIT}</td>
+				<td style="text-align: center;">{reminders.OFFLINE_DAYS}</td>
+				<td style="text-align: center;">{reminders.REMINDER_ONE}</td>
+				<td style="text-align: center;">{reminders.ONE_AGO}</td>
+				<td style="text-align: center;">{reminders.REMINDER_TWO}</td>
+				<td style="text-align: center;">{reminders.TWO_AGO}</td>
+				<td style="text-align: center;"><!-- IF reminders.REMINDER_ENABLED == 1 --><input type="checkbox" class="radio" name="mark_remind[]" value="{reminders.USER_ID}" /><!-- ENDIF --></td>
+				<td style="text-align: center;"><!-- IF reminders.DEL_ENABLED == 1 --><input type="checkbox" class="radio" name="mark_delete[]" value="{reminders.USER_ID}" /><!-- ENDIF --></td>
+			</tr>
+		<!-- BEGINELSE -->
+		<tr>
+			<td colspan="10" style="text-align: center;">{L_ACP_USERREMINDER_NO_ENTRIES}</td>
+		</tr>
+		<!-- END reminders -->
+		</tbody>
+	</table>
+
+	<!-- IF .pagination -->
+		<div class="pagination">
+			<!-- INCLUDE pagination.html -->
+		</div>
+	<!-- ENDIF -->
+
+	<fieldset class="display-options">
+		{L_SORT_BY}{L_COLON}
+		<select name="sort_key" onchange="this.options[this.selectedIndex].value;">
+			<option value="user_lastvisit" <!-- IF SORT_KEY == 'user_lastvisit' --> selected <!-- ENDIF -->>{L_ACP_USERREMINDER_KEY_LV}</option>
+			<option value="user_regdate" <!-- IF SORT_KEY == 'user_regdate' --> selected <!-- ENDIF -->>{L_ACP_USERREMINDER_KEY_RD}</option>
+	 		<!-- IF SORT_ONE_ABLE == 1 -->
+				<option value="mot_reminded_one"<!-- IF SORT_KEY == 'mot_reminded_one' --> selected <!-- ENDIF -->>{L_ACP_USERREMINDER_KEY_RO}</option>
+			<!-- ENDIF -->
+	 		<!-- IF SORT_TWO_ABLE == 1 -->
+				<option value="mot_reminded_two"<!-- IF SORT_KEY == 'mot_reminded_two' --> selected <!-- ENDIF -->>{L_ACP_USERREMINDER_KEY_RT}</option>
+			<!-- ENDIF -->
+		</select>&nbsp;
+		<select name="sort_dir" onchange="this.options[this.selectedIndex].value;">
+			<option value="DESC" <!-- IF SORT_DIR == 'DESC' --> selected <!-- ENDIF -->>{L_ACP_USERREMINDER_SORT_DESC}</option>
+			<option value="ASC" <!-- IF SORT_DIR == 'ASC' --> selected <!-- ENDIF -->>{L_ACP_USERREMINDER_SORT_ASC}</option>
+		</select>
+		<input class="button2" type="submit" value="{L_GO}" name="sort" />
+	</fieldset>
+	<hr />
+	
+	<!-- IF ENABLE_REMIND == 1 -->
+	<fieldset class="quick">
+		<input class="button2" type="submit" name="rem_marked" value="{L_REMIND_MARKED}" /><br />
+		<p class="small"><a href="#" onclick="marklist('acp_userreminder_reminder', 'mark_remind', true); return false;">{L_MARK_ALL}</a> &bull; <a href="#" onclick="marklist('acp_userreminder_reminder', 'mark_remind', false); return false;">{L_UNMARK_ALL}</a></p>
+	</fieldset>
+	<!-- ENDIF -->
+	
+	<!-- IF (ENABLE_REMIND == 1) and (ENABLE_DELETE == 1) -->		<!-- Let's show the horizontal ruler only if both sets of buttons are shown -->
+	<hr />
+	<!-- ENDIF -->
+	
+	<!-- IF ENABLE_DELETE == 1 -->
+	<fieldset class="quick">
+		<input class="button2" type="submit" name="delmarked" value="{L_DELETE_MARKED}" /><br />
+		<p class="small"><a href="#" onclick="marklist('acp_userreminder_reminder', 'mark_delete', true); return false;">{L_MARK_ALL}</a> &bull; <a href="#" onclick="marklist('acp_userreminder_reminder', 'mark_delete', false); return false;">{L_UNMARK_ALL}</a></p>
+	</fieldset>
+	<!-- ENDIF -->
+
+</form>
+
+<!-- INCLUDE overall_footer.html -->

@@ -1,0 +1,71 @@
+<!-- INCLUDE overall_header.html -->
+
+<h1>{L_ACP_USERREMINDER_ZEROPOSTER}</h1>
+<p>{L_ACP_USERREMINDER_ZEROPOSTER_EXPLAIN}</p>
+
+<form id="acp_userreminder_zeroposter" method="post" action="{U_ACTION}">
+	<!-- IF .pagination -->
+	<div class="pagination top-pagination">
+		<!-- INCLUDE pagination.html -->
+	</div>
+	<!-- ENDIF -->
+
+	<table class="table1 zebra-table fixed-width-table">
+		<thead>
+			<tr>
+				<th rowspan="2" style="width: 25%;">{L_USERNAME}</th>
+				<th rowspan="2" style="text-align: center;">{L_JOINED}</th>
+				<th colspan="2" style="text-align: center;">{L_LAST_VISIT}</th>
+				<th rowspan="2" style="width: 80px; text-align: center;">{L_MARK}</th>
+			</tr>
+			<tr>
+				<th style="text-align: center;">{L_AT_DATE}</th>
+				<th style="text-align: center;">{L_DAYS_AGO}</th>
+			</tr>
+		</thead>
+		<tbody>
+		<!-- BEGIN zeroposter -->
+			<tr>
+<!--				<td style="font-weight: bold; color: #{zeroposter.USER_COLOUR};">{zeroposter.USERNAME}</td> -->
+				<td><a href="{SERVER_CONFIG}/memberlist.php?mode=viewprofile&u={zeroposter.USER_ID}" target="_blank"><span style="font-weight: bold; color: #{zeroposter.USER_COLOUR};">{zeroposter.USERNAME}</span></a></td>
+				<td style="text-align: center;">{zeroposter.JOINED}</td>
+				<td style="text-align: center;">{zeroposter.LAST_VISIT}</td>
+				<td style="text-align: center;">{zeroposter.OFFLINE_DAYS}</td>
+				<td style="text-align: center;"><input type="checkbox" class="radio" name="mark[]" value="{zeroposter.USER_ID}" /></td>
+			</tr>
+		<!-- BEGINELSE -->
+		<tr>
+			<td colspan="5" style="text-align: center;">{L_ACP_USERREMINDER_NO_ENTRIES}</td>
+		</tr>
+		<!-- END zeroposter -->
+		</tbody>
+	</table>
+
+	<!-- IF .pagination -->
+		<div class="pagination">
+			<!-- INCLUDE pagination.html -->
+		</div>
+	<!-- ENDIF -->
+
+	<fieldset class="display-options">
+		{L_SORT_BY}{L_COLON}
+		<select name="sort_key" onchange="this.options[this.selectedIndex].value;">
+			<option value="user_lastvisit" <!-- IF SORT_KEY == 'user_lastvisit' --> selected <!-- ENDIF -->>{L_ACP_USERREMINDER_KEY_LV}</option>
+			<option value="user_regdate" <!-- IF SORT_KEY == 'user_regdate' --> selected <!-- ENDIF -->>{L_ACP_USERREMINDER_KEY_RD}</option>
+		</select>&nbsp;
+		<select name="sort_dir" onchange="this.options[this.selectedIndex].value;">
+			<option value="DESC" <!-- IF SORT_DIR == 'DESC' --> selected <!-- ENDIF -->>{L_ACP_USERREMINDER_SORT_DESC}</option>
+			<option value="ASC" <!-- IF SORT_DIR == 'ASC' --> selected <!-- ENDIF -->>{L_ACP_USERREMINDER_SORT_ASC}</option>
+		</select>
+		<input class="button2" type="submit" value="{L_GO}" name="sort" />
+	</fieldset>
+	<hr />
+
+	<fieldset class="quick">
+		<input class="button2" type="submit" name="delmarked" value="{L_DELETE_MARKED}" /><br />
+		<p class="small"><a href="#" onclick="marklist('acp_userreminder_zeroposter', 'mark', true); return false;">{L_MARK_ALL}</a> &bull; <a href="#" onclick="marklist('acp_userreminder_zeroposter', 'mark', false); return false;">{L_UNMARK_ALL}</a></p>
+	</fieldset>
+	
+</form>
+
+<!-- INCLUDE overall_footer.html -->

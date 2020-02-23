@@ -1,0 +1,11 @@
+Subject: Votre compte à été supprimé du {SITENAME} par un administrateur
+
+Bonjour, {USER_NAME}
+
+Nous sommes vraiment désolés, mais votre compte a été supprimé par l'administrateur !
+La raison de la suppression est que vous ne vous êtes pas connecté depuis plus de {INTERVAL_DAYS_SUM} jours à "{SITENAME}".
+
+Si vous le souhaitez, vous pouvez vous réinscrire.
+Nous espérons Vous revoir bientôt.
+
+{EMAIL_SIG}

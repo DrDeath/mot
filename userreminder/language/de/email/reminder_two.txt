@@ -1,0 +1,18 @@
+Subject: {SITENAME}: Wir vermissen dich noch immer!
+
+Hallo {USERNAME},
+
+Wir haben dir am {LAST_REMIND} eine Erinnerungs-Mail geschickt, weil du mehr als {DAYS_INACTIVE} Tage nicht im Forum {SITENAME} eingeloggt warst.
+Seit dieser Erinnerungs_Mail warst du noch nicht wieder in unserem Forum {SITENAME} aktiv.
+Wir hoffen, dass du nicht das Interesse an unserem Forum verloren hast und dich bald wieder einloggst.
+
+Im Fall, dass du deine Zugangsdaten vergessen hast, so kannst du sie immer unter dem nachfolgenden Link zurückerlangen:
+
+{FORGOT_PASS}
+
+In jedem Fall kannst du immer den Administrator des Forums unter der E-Mail {ADMIN_MAIL} kontaktieren.
+
+Solltest du dich nicht innerhalb der nächsten {DAYS_TIL_DELETE} Tage einloggen, kann dein Account ohne weitere Benachrichtigung gelöscht werden.
+Wir hoffen, dich bald wiederzusehen.
+
+{EMAIL_SIG}
