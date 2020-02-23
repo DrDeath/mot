@@ -116,7 +116,7 @@ class reminder_module
 		{
 			$query .= ' AND user_id NOT IN (' . $config['mot_ur_protected_members'] . ') ';
 		}
-		$query .= 'ORDER BY ' . $sort_key . ' ' . $sort_dir;
+		$query .= ' ORDER BY ' . $sort_key . ' ' . $sort_dir;
 
 		$result = $db->sql_query($query);
 		$reminders = $db->sql_fetchrowset($result);
