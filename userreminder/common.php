@@ -11,8 +11,8 @@
 
 namespace mot\userreminder;
 
-use \phpbb\language\language;
-use \phpbb\language\language_file_loader;
+use phpbb\language\language;
+use phpbb\language\language_file_loader;
 
 class common
 {
