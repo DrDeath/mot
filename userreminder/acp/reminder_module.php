@@ -114,7 +114,7 @@ class reminder_module
 
 		if ($config['mot_ur_protected_members'] <> '')						// prevent sql errors due to empty string
 		{
-			$query .= ' AND user_id NOT IN (' . $config['mot_ur_protected_members'] . ') ';
+			$query .= ' AND user_id NOT IN (' . $config['mot_ur_protected_members'] . ')';
 		}
 		$query .= ' ORDER BY ' . $sort_key . ' ' . $sort_dir;
 
