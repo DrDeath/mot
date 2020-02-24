@@ -79,7 +79,7 @@ class settings_module
 
 			$token = array('{SITENAME}', '{USERNAME}', '{LAST_VISIT}', '{LAST_REMIND}', '{DAYS_INACTIVE}', '{FORGOT_PASS}',
 							'{ADMIN_MAIL}', '{DAYS_TIL_DELETE}', '{EMAIL_SIG}');
-			$real_text = array($config['sitename'], $user->data['username'], $user->format_date(data['user_lastvisit']),
+			$real_text = array($config['sitename'], $user->data['username'], $user->format_date($user->data['user_lastvisit']),
 							$user->format_date(data['mot_reminded_one']), $config['mot_ur_inactive_days'],
 							$config['server_protocol'].$config['server_name']."/ucp.".$phpEx."?mode=sendpassword",
 							$config['board_contact'], $config['mot_ur_days_until_deleted'], $config['board_email_sig']);
