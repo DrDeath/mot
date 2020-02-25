@@ -1,0 +1,16 @@
+Subject: {SITENAME} : Vous nous manquez !
+
+Bonjour {USERNAME},
+
+Votre dernière visite sur notre {SITENAME} a eu lieu le {LAST_VISIT}.
+Cela fait un moment et nous aimerions que vous sachiez que nous espérons vous revoir bientôt !
+
+Si vous avez oublié vos informations d'identification, vous pouvez toujours les récupérer en utilisant le lien suivant.
+
+{FORGOT_PASS}
+
+Dans tous les cas, vous pouvez toujours contacter l'administrateur du forum via cet e-mail : {ADMIN_MAIL}
+
+En espérant vous revoir bientôt.
+
+{EMAIL_SIG}

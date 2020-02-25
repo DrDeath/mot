@@ -1,0 +1,19 @@
+Subject: {SITENAME} : Vous nous manquez !
+
+Bonjour {USERNAME},
+
+Vous avez reçu un e-mail de rappel le {LAST_REMIND}, car vous n'êtes pas connecté à notre forum {SITENAME} depuis plus de {DAYS_INACTIVE} jours.
+Depuis lors, vous n'êtes plus connecté à notre forum {SITENAME}.
+Nous espérons que vous n'avez pas perdu tout intérêt pour notre forum et que nous vous reverrons bientôt!
+
+Si vous avez oublié vos informations d'identification, vous pouvez toujours les récupérer en utilisant le lien suivant.
+
+{FORGOT_PASS}
+
+Dans tous les cas, vous pouvez toujours contacter l'administrateur du forum via cet e-mail : {ADMIN_MAIL}
+
+Si vous ne vous connectez pas à notre forum dans les {DAYS_TIL_DELETE} prochains jours, votre compte peut être supprimé sans préavis.
+
+En espérant vous revoir bientôt.
+
+{EMAIL_SIG}
