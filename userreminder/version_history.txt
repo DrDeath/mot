@@ -1,3 +1,7 @@
+ver 0.5.1
+February 25, 2020
+-	Some improvements in the fr language files
+
 ver 0.5.0
 February 23, 2020
 -	Replaced <br /> with <br> in all language files
@@ -7,11 +11,14 @@ February 23, 2020
 	registrated_only_module.php, reminder_module.php, zeroposter_info.php, main_listener.php
 -	Replaced the date formatting ( date('d.m.Y', "date") ) with $user->format_date("date') to present it in the current users notation in
 	the files: registrated_only_module.php, reminder_module.php, settings_module.php, zeroposter_info.php
+-	Corrected two incorrect date/time formattings with the email preview in settings_module.php
 -	New migration file 'ur_v_0_5_0.php' with a custom function to set the initial values for column 'mot_last_login' from
 	column 'user_lastvisit' in users table. This replaces the function 'init_ur' in the file 'main_listener.php' to make certain
 	that the admin doesn't have to wait to the next login to see the tabs in the ACP filled properly
 -	Added french language file and email texts (courtesy of Claude (stone23 at www.phpbb.com))
 -	Added a function in common.php to format date/time according to the addressed user's preferences and language in emails
+-	Put the "Delete users automatically" radio buttons under the selection for the number of days since last reminder antil deletion in
+	'acp_ur_settings.html'
 
 ver 0.4.0
 February 2, 2020
