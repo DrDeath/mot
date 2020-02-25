@@ -1,7 +1,7 @@
 <?php
 /**
 *
-* @package UserReminder v0.5.0
+* @package UserReminder v0.5.1
 * @copyright (c) 2019, 2020 Mike-on-Tour
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 * This translation courtesy of stone23
@@ -56,9 +56,9 @@ $lang = array_merge($lang, array(
 	'AT_DATE'									=> 'Le',
 	'MARK_REMIND'								=> 'Rappeler',
 	'MARK_DELETE'								=> 'Supprimer',
-	'REMIND_MARKED'								=> 'Rappel marqué',
-	'LOG_INACTIVE_REMIND_ONE'					=> '<strong>Envoi du premier e-mail de rappel aux utilisateurs inactifs</strong><br />» %s',
-	'LOG_INACTIVE_REMIND_TWO'					=> '<strong>Envoi d’un deuxième e-mail de rappel aux utilisateurs inactifs</strong><br />» %s',
+	'REMIND_MARKED'								=> 'Envoyer rappel',
+	'LOG_INACTIVE_REMIND_ONE'					=> '<strong>Envoi du premier e-mail de rappel aux utilisateurs inactifs</strong><br>» %s',
+	'LOG_INACTIVE_REMIND_TWO'					=> '<strong>Envoi d’un deuxième e-mail de rappel aux utilisateurs inactifs</strong><br>» %s',
 
 	//ACP
 	'ACP_USERREMINDER'							=> 'Rappel utilisateur',
@@ -88,11 +88,11 @@ $lang = array_merge($lang, array(
 	'ACP_USERREMINDER_MAIL_TWO'					=> '2ème rappel',
 	'ACP_USERREMINDER_MAIL_PREVIEW'				=> 'Dans la fenêtre de droite, vous pouvez modifier le texte de l’e-mail choisi. En cliquant sur le bouton "Aperçu" le texte est affiché ci-dessous comme
 il sera affiché dans l’e-mail envoyé. Les caractères seront remplacés par vos données respectives. Avec l’aperçu s’affichera un bouton pour enregistrer le texte sous forme de fichier sur votre serveur.<br>
-													Vous pouvez utiliser les caractères suivants comme espaces réservés pour les données respectives de l’utilisateur concerné:<br>
+													Vous pouvez utiliser les caractères suivants comme espaces réservés pour les données respectives de l’utilisateur concerné :<br>
 													- {USERNAME} : Le nom d’utilisateur des membres<br>
 													- {LAST_VISIT} : Date de la dernière connexion<br>
 													- {LAST_REMIND} : Date du premier mail de rappel<br>
-													Les caractères suivants peuvent être utilisés comme espaces réservés pour les données système:<br>
+													Les caractères suivants peuvent être utilisés comme espaces réservés pour les données système :<br>
 													- {SITENAME} : Nom de votre forum<br>
 													- {FORGOT_PASS} : Lien vers "Mot de passe oublié"<br>
 													- {ADMIN_MAIL} : L’adresse e-mail de l’administrateur<br>
@@ -109,8 +109,8 @@ il sera affiché dans l’e-mail envoyé. Les caractères seront remplacés par 
 	// ACP Reminder
 	'ACP_USERREMINDER_REMINDER'					=> 'Rappeler aux utilisateurs',
 	'ACP_USERREMINDER_REMINDER_EXPLAIN'			=> 'Une liste des utilisateurs qui étaient en ligne et ont publié quelque chose, mais qui ont été hors ligne pendant le nombre de jours défini dans l’onglet Paramètres pour être considérés comme inactifs.
-													Vous pouvez sélectionner manuellement ces utilisateurs pour leur envoyer les e-mails de rappel ou les supprimer après la période définie après le deuxième rappel..
-													La suppression n’est pas sélectionnable jusqu’à ce que les périodes définies dans l’onglet de configuration se soient écoulées sans que cet utilisateur ne se soit connecté au moins une fois...',
+													Vous pouvez sélectionner manuellement ces utilisateurs pour leur envoyer les e-mails de rappel ou les supprimer après la période définie après le deuxième rappel.
+													La suppression n’est pas sélectionnable jusqu’à ce que les périodes définies dans l’onglet de configuration se soient écoulées sans que cet utilisateur ne se soit connecté au moins une fois.',
 	'ACP_USERREMINDER_REMINDER_ONE'				=> 'Premier rappel',
 	'ACP_USERREMINDER_REMINDER_TWO'				=> 'Second rappel',
 	'ACP_USERREMINDER_NO_ENTRIES'				=> 'Aucune donnée disponible',

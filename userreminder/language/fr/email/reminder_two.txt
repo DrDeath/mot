@@ -1,4 +1,4 @@
-Subject: {SITENAME}: Vous nous manquez !
+Subject: {SITENAME} : Vous nous manquez !
 
 Bonjour {USERNAME},
 
