@@ -1,0 +1,16 @@
+Asunto: {SITENAME}: ¡Te extrañamos!
+
+Hola {USERNAME},
+
+Tu última visita a nuestro foro {SITENAME} fue en {LAST_VISIT}.
+That has been a while and we would like you to know that we hope to see you again soon!
+
+En caso de que hayas olvidado tus credenciales de acceso, siempre puedes solicitarlas de nuevo usando el siguiente enlace.
+
+{FORGOT_PASS}
+
+En cualquier caso siempre puedes contactar al administrador del Foro a través de este correo electrónico: {ADMIN_MAIL}.
+
+Esperamos verte de vuelta pronto.
+
+{EMAIL_SIG}

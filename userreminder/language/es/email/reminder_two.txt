@@ -1,0 +1,18 @@
+Asunto: {SITENAME}: ¡Te seguimos extrañando!
+
+Hola {USERNAME},
+
+Recibiste un correo electrónico de recordatorio en {LAST_REMIND} porque no te has conectado a nuestro FORO {SITENAME} por más de {DAYS_INACTIVE} días.
+No te has conectado a nuestro Foro {SITENAME} desde entonces.
+¡Esperamos que no hayas perdido el interés en nuestro foro y podamos volver a verte pronto!
+
+En caso de que hayas olvidado tus credenciales de acceso, siempre puedes solicitarlas de nuevo usando el siguiente enlace.
+
+{FORGOT_PASS}
+
+En cualquier caso siempre puedes contactar al administrador del Foro a través de este correo electrónico: {ADMIN_MAIL}.
+
+Si no te conectas a nuestro Foro en los próximos {DAYS_TIL_DELETE} días tu cuenta puede ser eliminada sin previo aviso.
+Esperamos verte pronto.
+
+{EMAIL_SIG}
