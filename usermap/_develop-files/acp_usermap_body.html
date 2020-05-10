@@ -1,0 +1,43 @@
+<!-- INCLUDE overall_header.html -->
+
+<h1>{L_SETTINGS}</h1>
+<p>{L_ACP_USERMAP_SETTINGS_EXPLAIN}</p>
+
+<form id="acp_usermap_settings" method="post" action="{U_ACTION}"  onsubmit="return chkUsermapEmptyUser('{L_ACP_USERMAP_GEONAMESUSER_ERR}')">
+    <fieldset>
+		<legend>{L_ACP_USERMAP_MAPSETTING_TITLE}</legend>
+		<p>{L_ACP_USERMAP_MAPSETTING_TEXT}</p>
+        <dl>
+            <dt><label for="mot_usermap_lat">{L_ACP_USERMAP_LAT}{L_COLON}</label><p>{L_ACP_USERMAP_LAT_EXP}</p></dt>
+            <dd><input id="mot_usermap_lat" type="text" size="10" maxlength="10" name="mot_usermap_lat" onblur="chkUsermapCoords('mot_usermap_lat', 50.5, -90.0, 90.0)" value="{ACP_USERMAP_LAT}" /></dd>
+        </dl>
+        <dl>
+            <dt><label for="mot_usermap_lon">{L_ACP_USERMAP_LON}{L_COLON}</label><p>{L_ACP_USERMAP_LON_EXP}</dt>
+            <dd><input id="mot_usermap_lon" type="text" size="10" maxlength="10" name="mot_usermap_lon" onblur="chkUsermapCoords('mot_usermap_lon', 10, -180.0, 180.0)" value="{ACP_USERMAP_LON}" /></dd>
+        </dl>
+        <dl>
+            <dt><label for="mot_usermap_zoom">{L_ACP_USERMAP_ZOOM}{L_COLON}</label></dt>
+            <dd><input id="mot_usermap_zoom" type="number" min="2" max="10" name="mot_usermap_zoom" value="{ACP_USERMAP_ZOOM}" /></dd>
+        </dl>
+
+        {S_FORM_TOKEN}
+    </fieldset>
+	
+	<fieldset>
+		<legend>{L_ACP_USERMAP_GEONAMES_TITLE}</legend>
+		<p>{L_ACP_USERMAP_GEONAMES_TEXT}</p>
+		<dl>
+            <dt><label for="mot_usermap_geonamesuser">{L_ACP_USERMAP_GEONAMESUSER}{L_COLON}</label></dt>
+            <dd><input id="mot_usermap_geonamesuser" type="text" size="50" maxlength="255" name="mot_usermap_geonamesuser" onblur="cleanUsermapUser('mot_usermap_geonamesuser')" value="{ACP_USERMAP_GEONAMESUSER}" /></dd>
+		</dl>
+	</fieldset>
+	
+	<fieldset>
+        <p class="submit-buttons">
+            <input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />&nbsp;
+            <input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
+        </p>
+	</fieldset>
+</form>
+
+<!-- INCLUDE overall_footer.html -->

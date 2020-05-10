@@ -1,0 +1,34 @@
+{
+	"name": "mot/usermap",
+	"type": "phpbb-extension",
+	"description": "Adds a usermap to your forum.",
+	"homepage": "https://www.mike-on-tour.com",
+	"version": "0.5.1",
+	"time": "2020-05-09 19:57:00",
+	"license": "GPL-2.0-only",
+	"authors": [
+		{
+			"name": "Michael Vormwald",
+			"email": "webmaster@mike-on-tour.de",
+			"homepage": "https://www.mike-on-tour.de",
+			"role": "Lead Developer"
+		}
+	],
+	"require": {
+		"php": ">=5.4"
+	},
+	"require-dev": {
+		"phpbb/epv": "dev-master"
+	},
+	"extra": {
+		"display-name": "Usermap for phpbb",
+		"soft-require": {
+			"phpbb/phpbb": ">=3.2"
+		},
+		"version-check": {
+			"host": "www.mike-on-tour.com",
+			"directory": "/mot",
+			"filename": "mot_usermap.json"
+		}
+	}
+}

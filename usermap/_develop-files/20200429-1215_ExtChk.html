@@ -1,0 +1,311 @@
+<!DOCTYPE HTML>
+<html lang="de">
+<head>
+	<title>phpBB Ext Check - Bericht</title>
+	<meta charset="UTF-8"/>
+	<style>
+		body {
+			font-family: "Trebuchet MS", sans-serif;
+		}
+		code {
+			background-color: #b3cccc;
+			color: #000000;
+			border-width: 1px;
+			border-style: solid;
+			border-color: #75a3a3;
+			padding: 0 3px;
+		}
+		.common {
+			max-width: 71em;
+		}
+		.title {
+			font-size: 1.2em;
+		}
+		.info {
+			border-width: 1px;
+			border-style: solid;
+			border-color: #e0e0e0;
+			border-radius: 5px;
+			padding: 0.3em 0.5em;
+			max-width: 70em;
+			background-color: #f2f2f2;
+		}
+		.table_header {
+			background-color: #e0e0e0;
+			font-weight: normal;
+			border-radius: 5px;
+		}
+		.suffix {
+			display: inline-block;
+		}
+		.console {
+			white-space: pre-wrap;
+			color: white;
+			background-color: black;
+			font-family: "Consolas", monospace;
+			font-size: inherit;
+			margin: 0 0 5px 0;
+			padding: 4px 8px;
+		}
+		.result {
+			background-color: #f2f2f2;
+		}
+		.result_header {
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			cursor: pointer;
+		}
+		.result_name {
+			display: inline-block;
+			width: 12em;
+			color: royalblue;
+		}
+		.result_symbols {
+			display: inline-block;
+		}
+		.result_symbol {
+			font-family: "Segoe UI Symbol";
+		}
+		.log {
+			border-width: 1px;
+			border-style: solid;
+			border-color: black;
+			border-radius: 5px;
+			margin: 2px 0;
+			padding: 0 0.5em;
+			max-width: 70em;
+		}
+		.log_error {
+			color: white;
+			background-color: crimson;
+		}
+		.log_warning {
+			color: black;
+			background-color: orange;
+		}
+		.log_info {
+			color: white;
+			background-color: royalblue;
+		}
+	</style>
+	<script>
+		var ExtCheck = {};
+		ExtCheck.ShowHide = function (id) {
+			var current = document.getElementById(id).style.display;
+			if (current === 'none') {
+				document.getElementById(id).style.display = '';
+				document.getElementById('pref_' + id).innerHTML = '&#9660;';
+			} else {
+				document.getElementById(id).style.display = 'none';
+				document.getElementById('pref_' + id).innerHTML = '&#9658;';
+			}
+		};
+	</script>
+</head>
+<body>
+<p class="common">
+	<span class="title">phpBB Ext Check v0.9.5 © 2019-2020 LukeWCS</span>
+</p>
+<div class="info">
+	<table style="width:100%">
+		<tr><th colspan="3" class="table_header">Erweiterung Infos</th></tr>
+		<tr><td>Angezeigter Name</td>	<td>:</td>	<td style="width:100%"> Usermap for phpbb</td></tr>
+		<tr><td>Technischer Name</td>			<td>:</td>	<td> mot/usermap</td></tr>
+		<tr><td>Version</td>		<td>:</td>	<td> 0.5.0</td></tr>
+		<tr><td>Veröffentlichungszeitpunkt</td>			<td>:</td>	<td> 2020-04-30 19:57:00</td></tr>
+		<tr><td>Autor Name</td>	<td>:</td>	<td> Michael Vormwald</td></tr>
+		<tr><td>Voraussetzung PHP</td>	<td>:</td>	<td> &gt;=5.4</td></tr>
+		<tr><td>Voraussetzung phpBB</td>	<td>:</td>	<td> &gt;=3.2</td></tr>
+		<tr><td>36 Dateien</td>	<td>:</td>	<td> <span class="suffix"><code>css</code> 2 /</span> <span class="suffix"><code>html</code> 6 /</span> <span class="suffix"><code>js</code> 3 /</span> <span class="suffix"><code>json</code> 1 /</span> <span class="suffix"><code>php</code> 20 /</span> <span class="suffix"><code>txt</code> 2 /</span> <span class="suffix"><code>yml</code> 2</td></tr>
+		<tr><th colspan="3" class="table_header">Ext Check Infos</th></tr>
+		<tr><td>EPV</td>											<td>:</td>	<td> Console Tool by paul999 (https://github.com/phpbb/epv)</td></tr>
+		<tr><td>PHP_CodeSniffer</td>								<td>:</td>	<td> PHP_CodeSniffer version 3.5.4 (stable) by Squiz (http://www.squiz.net)</td></tr>
+		<tr><td>PHPCompatibility</td>								<td>:</td>	<td> PHPCompatibility version 9.3.5 (stable) by PHPCompatibility (https://github.com/PHPCompatibility)</td></tr>
+		<tr><td>phpBB33YAMLcheck</td>								<td>:</td>	<td> phpBB 3.3 YAML check version 0.3.10 by LukeWCS</td></tr>
+		<tr><td>PHP</td>											<td>:</td>	<td> 7.1.33-nmm1</td></tr>
+	</table>
+</div>
+<p class="info" style="margin-bottom: 0;">
+	Legende: <span class="result_symbol" style="color: red;">&#10006;</span> Fehler / <span class="result_symbol" style="color: orange;">&#9888;</span> Warnung / <span class="result_symbol" style="color: blue;">&#9432;</span> Info / <span class="result_symbol" style="color: limegreen;">&#10004;</span> keine Probleme / <span class="result_symbol" style="color: silver;">&#10004;</span> keine zutreffenden Dateien</p>
+<div class="log"><span style="opacity: 0.2;">&#9658;</span> 2020-04-29 12:15:42.759 / 00:00:00.039 Die hochgeladene Datei wurde geprüft. Dateityp: application/zip</div>
+<div class="log"><span style="opacity: 0.2;">&#9658;</span> 2020-04-29 12:15:42.764 / 00:00:00.005 Das ZIP-Archiv wurde entpackt.</div>
+<div class="log"><span style="opacity: 0.2;">&#9658;</span> 2020-04-29 12:15:42.765 / 00:00:00.000 <code>composer.json</code> wurde gesucht und gelesen.</div>
+<div class="log"><span style="opacity: 0.2;">&#9658;</span> 2020-04-29 12:15:42.766 / 00:00:00.000 Dateitypen wurden ermittelt und gezählt.</div>
+<div class="log"><span style="opacity: 0.2;">&#9658;</span> 2020-04-29 12:15:43.249 / 00:00:00.483 Die Versionen der Tools wurden ermittelt.</div>
+<div class="log"><span style="opacity: 0.2;">&#9658;</span> 2020-04-29 12:15:43.258 / 00:00:00.008 Alle Voraussetzungen erfüllt, Prüfungen werden ausgeführt.</div>
+<div class="log result"><div class="result_header" onclick="ExtCheck.ShowHide('epv')"><span id="pref_epv">&#9658;</span> 2020-04-29 12:15:43.874 / 00:00:00.616 <span class="result_name">Extension Pre Validator</span><span class="result_symbols"><span class="result_symbol" style="color: orange;">&#9888;</span> 3</span></div>
+<pre id="epv" class="console" style="display: none;"><span style="color: white">Running Extension Pre Validator on directory </span><span style="color: green">ext</span><span style="color: white">.
+Running tests.
+
+</span><span style="background-color: darkred; color: white">                                           </span><span style="color: white">
+</span><span style="background-color: darkred; color: white"> Validation: FAILED                        </span><span style="color: white">
+</span><span style="background-color: darkred; color: white"> Fatal: 0, Error: 0, Warning: 3, Notice: 0 </span><span style="color: white">
+</span><span style="background-color: darkred; color: white">                                           </span><span style="color: white">
+
+</span><span style="color: green">Test results for extension:</span><span style="color: white">
+</span><span style="color: lightyellow">Warning:</span><span style="color: yellow"> IN_PHPBB is not defined in /mot/usermap/language/de/countrycode.php</span><span style="color: white">
+</span><span style="color: lightyellow">Warning:</span><span style="color: yellow"> IN_PHPBB is not defined in /mot/usermap/language/de_x_sie/countrycode.php</span><span style="color: white">
+</span><span style="color: lightyellow">Warning:</span><span style="color: yellow"> IN_PHPBB is not defined in /mot/usermap/language/en/countrycode.php</span><span style="color: white">
+</span></pre></div>
+<div class="log result"><div class="result_header" onclick="ExtCheck.ShowHide('phpcs')"><span id="pref_phpcs">&#9658;</span> 2020-04-29 12:15:44.542 / 00:00:00.667 <span class="result_name">PHP_CodeSniffer</span><span class="result_symbols"><span class="result_symbol" style="color: red;">&#10006;</span> 16 / <span class="result_symbol" style="color: orange;">&#9888;</span> 2</span></div>
+<pre id="phpcs" class="console" style="display: none;">Ruleset       : phpBB PHP Strict Standard Extensions
+Extensions    : php,js,css
+Files checked : 24
+Files affected: 5
+
+
+FILE: mot/usermap/acp/lang_module.php
+--------------------------------------------------------------------------------
+FOUND 2 ERRORS AFFECTING 2 LINES
+--------------------------------------------------------------------------------
+ 165 | ERROR | There should be exactly one space between the keyword and
+     |       | opening parenthesis
+ 167 | ERROR | There should be exactly one space between the keyword and
+     |       | opening parenthesis
+--------------------------------------------------------------------------------
+
+
+FILE: mot/usermap/includes/um_constants.php
+--------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+--------------------------------------------------------------------------------
+ 1 | WARNING | A file should declare new symbols (classes, functions,
+   |         | constants, etc.) and cause no other side effects, or it should
+   |         | execute logic with side effects, but should not do both. The
+   |         | first symbol is defined on line 20 and the first side effect is
+   |         | on line 15.
+--------------------------------------------------------------------------------
+
+
+FILE: mot/usermap/styles/all/theme/leaflet.css
+--------------------------------------------------------------------------------
+FOUND 11 ERRORS AFFECTING 11 LINES
+--------------------------------------------------------------------------------
+   1 | ERROR | End of line character is invalid; expected &quot;\n&quot; but found
+     |       | &quot;\r\n&quot;
+  25 | ERROR | Tabs must be used to indent lines; spaces are not allowed
+  89 | ERROR | Tabs must be used to indent lines; spaces are not allowed
+ 176 | ERROR | Tabs must be used to indent lines; spaces are not allowed
+ 183 | ERROR | Tabs must be used to indent lines; spaces are not allowed
+ 184 | ERROR | Tabs must be used to indent lines; spaces are not allowed
+ 192 | ERROR | Tabs must be used to indent lines; spaces are not allowed
+ 198 | ERROR | Tabs must be used to indent lines; spaces are not allowed
+ 438 | ERROR | Tabs must be used to indent lines; spaces are not allowed
+ 501 | ERROR | Tabs must be used to indent lines; spaces are not allowed
+ 502 | ERROR | Tabs must be used to indent lines; spaces are not allowed
+--------------------------------------------------------------------------------
+
+
+FILE: mot/usermap/styles/all/template/leaflet.js
+----------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+----------------------------------------------------------------------
+ 1 | WARNING | File appears to be minified and cannot be processed
+----------------------------------------------------------------------
+
+
+FILE: mot/usermap/styles/all/template/mot_usermap.js
+----------------------------------------------------------------------------
+FOUND 3 ERRORS AFFECTING 3 LINES
+----------------------------------------------------------------------------
+ 25 | ERROR | Tabs must be used to indent lines; spaces are not allowed
+ 26 | ERROR | Tabs must be used to indent lines; spaces are not allowed
+ 66 | ERROR | Tabs must be used to indent lines; spaces are not allowed
+----------------------------------------------------------------------------</pre></div>
+<div class="log result"><div class="result_header" onclick="ExtCheck.ShowHide('phpcsc53')"><span id="pref_phpcsc53">&#9658;</span> 2020-04-29 12:15:45.136 / 00:00:00.593 <span class="result_name">PHPCompatibility 5.3</span><span class="result_symbols"><span class="result_symbol" style="color: limegreen;">&#10004;</span></span></div>
+<pre id="phpcsc53" class="console" style="display: none;">Ruleset       : PHPCompatibility (testVersion: 5.3)
+Extensions    : php
+Files checked : 20
+Files affected: 0
+
+
+No issues found</pre></div>
+<div class="log result"><div class="result_header" onclick="ExtCheck.ShowHide('phpcsc54')"><span id="pref_phpcsc54">&#9658;</span> 2020-04-29 12:15:45.604 / 00:00:00.468 <span class="result_name">PHPCompatibility 5.4</span><span class="result_symbols"><span class="result_symbol" style="color: limegreen;">&#10004;</span></span></div>
+<pre id="phpcsc54" class="console" style="display: none;">Ruleset       : PHPCompatibility (testVersion: 5.4)
+Extensions    : php
+Files checked : 20
+Files affected: 0
+
+
+No issues found</pre></div>
+<div class="log result"><div class="result_header" onclick="ExtCheck.ShowHide('phpcsc55')"><span id="pref_phpcsc55">&#9658;</span> 2020-04-29 12:15:46.079 / 00:00:00.475 <span class="result_name">PHPCompatibility 5.5</span><span class="result_symbols"><span class="result_symbol" style="color: limegreen;">&#10004;</span></span></div>
+<pre id="phpcsc55" class="console" style="display: none;">Ruleset       : PHPCompatibility (testVersion: 5.5)
+Extensions    : php
+Files checked : 20
+Files affected: 0
+
+
+No issues found</pre></div>
+<div class="log result"><div class="result_header" onclick="ExtCheck.ShowHide('phpcsc56')"><span id="pref_phpcsc56">&#9658;</span> 2020-04-29 12:15:46.540 / 00:00:00.460 <span class="result_name">PHPCompatibility 5.6</span><span class="result_symbols"><span class="result_symbol" style="color: limegreen;">&#10004;</span></span></div>
+<pre id="phpcsc56" class="console" style="display: none;">Ruleset       : PHPCompatibility (testVersion: 5.6)
+Extensions    : php
+Files checked : 20
+Files affected: 0
+
+
+No issues found</pre></div>
+<div class="log result"><div class="result_header" onclick="ExtCheck.ShowHide('phpcsc70')"><span id="pref_phpcsc70">&#9658;</span> 2020-04-29 12:15:47.009 / 00:00:00.468 <span class="result_name">PHPCompatibility 7.0</span><span class="result_symbols"><span class="result_symbol" style="color: limegreen;">&#10004;</span></span></div>
+<pre id="phpcsc70" class="console" style="display: none;">Ruleset       : PHPCompatibility (testVersion: 7.0)
+Extensions    : php
+Files checked : 20
+Files affected: 0
+
+
+No issues found</pre></div>
+<div class="log result"><div class="result_header" onclick="ExtCheck.ShowHide('phpcsc71')"><span id="pref_phpcsc71">&#9658;</span> 2020-04-29 12:15:47.467 / 00:00:00.458 <span class="result_name">PHPCompatibility 7.1</span><span class="result_symbols"><span class="result_symbol" style="color: limegreen;">&#10004;</span></span></div>
+<pre id="phpcsc71" class="console" style="display: none;">Ruleset       : PHPCompatibility (testVersion: 7.1)
+Extensions    : php
+Files checked : 20
+Files affected: 0
+
+
+No issues found</pre></div>
+<div class="log result"><div class="result_header" onclick="ExtCheck.ShowHide('phpcsc72')"><span id="pref_phpcsc72">&#9658;</span> 2020-04-29 12:15:47.930 / 00:00:00.463 <span class="result_name">PHPCompatibility 7.2</span><span class="result_symbols"><span class="result_symbol" style="color: limegreen;">&#10004;</span></span></div>
+<pre id="phpcsc72" class="console" style="display: none;">Ruleset       : PHPCompatibility (testVersion: 7.2)
+Extensions    : php
+Files checked : 20
+Files affected: 0
+
+
+No issues found</pre></div>
+<div class="log result"><div class="result_header" onclick="ExtCheck.ShowHide('phpcsc73')"><span id="pref_phpcsc73">&#9658;</span> 2020-04-29 12:15:48.382 / 00:00:00.451 <span class="result_name">PHPCompatibility 7.3</span><span class="result_symbols"><span class="result_symbol" style="color: limegreen;">&#10004;</span></span></div>
+<pre id="phpcsc73" class="console" style="display: none;">Ruleset       : PHPCompatibility (testVersion: 7.3)
+Extensions    : php
+Files checked : 20
+Files affected: 0
+
+
+No issues found</pre></div>
+<div class="log result"><div class="result_header" onclick="ExtCheck.ShowHide('phpcsc74')"><span id="pref_phpcsc74">&#9658;</span> 2020-04-29 12:15:48.856 / 00:00:00.474 <span class="result_name">PHPCompatibility 7.4</span><span class="result_symbols"><span class="result_symbol" style="color: limegreen;">&#10004;</span></span></div>
+<pre id="phpcsc74" class="console" style="display: none;">Ruleset       : PHPCompatibility (testVersion: 7.4)
+Extensions    : php
+Files checked : 20
+Files affected: 0
+
+
+No issues found</pre></div>
+<div class="log result"><div class="result_header" onclick="ExtCheck.ShowHide('phpcsc53-')"><span id="pref_phpcsc53-">&#9658;</span> 2020-04-29 12:15:49.348 / 00:00:00.491 <span class="result_name">PHPCompatibility 5.3-</span><span class="result_symbols"><span class="result_symbol" style="color: limegreen;">&#10004;</span></span></div>
+<pre id="phpcsc53-" class="console" style="display: none;">Ruleset       : PHPCompatibility (testVersion: 5.3-)
+Extensions    : php
+Files checked : 20
+Files affected: 0
+
+
+No issues found</pre></div>
+<div class="log result"><div class="result_header" onclick="ExtCheck.ShowHide('yamlchk')"><span id="pref_yamlchk">&#9658;</span> 2020-04-29 12:15:49.379 / 00:00:00.030 <span class="result_name">phpBB33YAMLcheck</span><span class="result_symbols"><span class="result_symbol" style="color: limegreen;">&#10004;</span></span></div>
+<pre id="yamlchk" class="console" style="display: none;">Extensions    : yml,yaml
+Files checked : 2
+Files affected: 0
+
+
+No issues found</pre></div>
+<div class="log"><span style="opacity: 0.2;">&#9658;</span> 2020-04-29 12:15:49.379 / 00:00:00.000 Alle Prüfungen wurden ausgeführt.</div>
+<div class="log"><span style="opacity: 0.2;">&#9658;</span> 2020-04-29 12:15:49.380 / 00:00:00.000 Der temporäre Ordner wurde gelöscht.</div>
+<div class="log result"><div class="result_header" onclick="ExtCheck.ShowHide('logentry')"><span id="pref_logentry">&#9658;</span> 2020-04-29 12:15:49.380 / 00:00:00.000 <span>Ext Check Log Eintrag. Laufzeit: 00:00:06.664</span></div>
+<pre id="logentry" class="console" style="display: none;">2020-04-29 12:15:49.380 mot_usermap_0-5-0 EPV=2 CS=3 C53=0 C54=0 C55=0 C56=0 C70=0 C71=0 C72=0 C73=0 C74=0 C53-=0 YMLC=0 TIME=00:00:06.664
+</pre></div>
+<br>
+</body>
+</html>

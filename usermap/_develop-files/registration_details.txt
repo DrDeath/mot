@@ -1,0 +1,14 @@
+﻿Registrierung mit: Keine Aktivierung (direkter Zugang ohne Prüfung)
+cp_data:	Array ( [pf_vorname] => Mike [pf_plz] => [pf_land] => 1 [pf_vid] => 1234567 [pf_vehtype] => 3 [pf_mot_zip] => R0K2A0 [pf_mot_land] => 39 )
+data:	 	Array ( [username] => Tester [new_password] => ekim123 [password_confirm] => ekim123 [email] => webmaster@rt-freunde.de [lang] => de [tz] => Europe/Berlin )
+user_row:	Array ( [username] => Tester [user_password] => $2y$10$qiq1aSGVvE9I4g7sRtceMePNKMO.rxwE5PDuCKu8Ztyug3Rxb4e6G [user_email] => webmaster@rt-freunde.de [group_id] => 2 [user_timezone] => Europe/Berlin [user_lang] => de [user_type] => 0 [user_actkey] => [user_ip] => ::1 [user_regdate] => 1589018413 [user_inactive_reason] => 0 [user_inactive_time] => 0 [user_new] => 1 )
+
+Registrierung mit: Durch den Benutzer (Verifizierung der E-Mail-Adresse)
+cp_data:	Array ( [pf_vorname] => Mike [pf_plz] => [pf_land] => 1 [pf_vid] => 1234567 [pf_vehtype] => 9 [pf_mot_zip] => R0K2A0 [pf_mot_land] => 39 )
+data:	 	Array ( [username] => Tester [new_password] => ekim123 [password_confirm] => ekim123 [email] => webmaster@rt-freunde.de [lang] => de [tz] => Europe/Berlin )
+user_row:	Array ( [username] => Tester [user_password] => $2y$10$6av9gdVtSoiiTr7XO2TmdefgVtyQQqT1gUymUI/VQInNueQs1buRS [user_email] => webmaster@rt-freunde.de [group_id] => 2 [user_timezone] => Europe/Berlin [user_lang] => de [user_type] => 1 [user_actkey] => P5EWMXLD8U [user_ip] => ::1 [user_regdate] => 1589019107 [user_inactive_reason] => 1 [user_inactive_time] => 1589019107 [user_new] => 1 )
+
+Registrierung mit: Durch einen Administrator
+cp_data:	Array ( [pf_vorname] => Mike [pf_plz] => [pf_land] => 1 [pf_vid] => 1234567 [pf_vehtype] => 9 [pf_mot_zip] => R0K2A0 [pf_mot_land] => 39 )
+data:	 	Array ( [username] => Tester [new_password] => ekim123 [password_confirm] => ekim123 [email] => webmaster@rt-freunde.de [lang] => de [tz] => Europe/Berlin )
+user_row:	Array ( [username] => Tester [user_password] => $2y$10$Ta6Kv6F06nygQGPQyb4U3OHqNqQEW4TqHedWW3U1FxL7lEL98Bc.2 [user_email] => webmaster@rt-freunde.de [group_id] => 2 [user_timezone] => Europe/Berlin [user_lang] => de [user_type] => 1 [user_actkey] => MEMRWUO [user_ip] => ::1 [user_regdate] => 1589020095 [user_inactive_reason] => 1 [user_inactive_time] => 1589020095 [user_new] => 1 )

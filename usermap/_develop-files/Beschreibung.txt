@@ -1,0 +1,17 @@
+﻿Beschreibung Usermap
+Die Extension "Usermap for phpbb" fügt dem Forum eine interaktive Mitgliederkarte mit den Standorten der registrierten Benutzer hinzu. Die Bestimmung der
+Standorte erfolgt über die Angabe des Landes (Staates), in dem der Benutzer wohnt sowie der Angabe der Postleitzahl des Wohnortes. Aus diesen
+beiden Angaben wird aus der entsprechenden Datenbank von Geonames.org die dort hinterlegte Koordinate ausgelesen und in die Karte eingetragen.
+Darüber hinaus wird bei mehreren Ergebnissen für eine Postleitzahl das bereits in phpbb vorhandene Profilfeld "Wohnort" mit ausgewertet und die
+gefundene Koordinate so verfeinert.
+Die Anzeige des Standortes erfolgt mit einem (Kreis-)Marker, der in der Farbe der Hauptgruppe des jeweiligen Benutzers gehalten ist. Jeder in der
+Karte enthaltene Benutzer kann im Umkreis von 1km - 100km in vorgegebenen Entfernungen nach anderen Benutzern suchen. Diese werden ihm mit ihrem
+Nickname in aufsteigender Entfernung angezeigt. Über den Nickname ist das Profil verknüpft, das in einer neuen Registerkarte (Tab) angezeigt wird.
+Die Eingabe oder Änderung von Land und Postleitzahl erfolgt im Profil des einzelnen Benutzers.
+Benutzer, die diese Angaben nicht gemacht haben, können die Karte nicht sehen, so ist auch ein rudimentärer Datenschutz gegeben (wer diese Datenbank
+nicht angibt, darf auch die der Anderen nicht sehen).
+Als Karte wird eine OSM Karte verwendet.
+Der Administrator kann im ACP Breiten- und Längengrad des Kartenzentrums sowie den Zoom-Faktor bestimmen, mit dem die Karte geöffnet wird. Zudem
+können über das ACP zusätzliche Sprachpakete für die Extension nachinstalliert werden.
+Vor einer möglichen Verwendung der Mitgliederkarte MUSS der Administrator einen (kostenfreien) Account bei Geonames.org einrichten und den Benutzernamen
+dieses Accounts im ACP eingeben, um die Abfrage der Koordinaten zu ermöglichen. Ohne diese Angabe funktioniert die Mitgliederkarte nicht!

@@ -1,0 +1,123 @@
+<!-- INCLUDE overall_header.html -->
+<!-- INCLUDEJS @mot_usermap/leaflet.js -->
+<!-- INCLUDEJS @mot_usermap/mot_usermap.js -->
+
+<div id="page-body" class="page-body">
+
+	<!-- IF AUTH_USER > 0 -->
+	<div class="forabg">
+		<div class="inner">
+			<ul class="topiclist">
+				<li class="header">
+					<dl class="row-item">
+						<dt>
+							<div class="list-inner">
+								{L_USERMAP_SEARCHFORM}
+							</div>
+						</dt>
+					</dl>
+				</li>
+			</ul>
+		</div>
+		<div class="panel bg1">
+			<div class="usermap_search">
+				<div class="search-form"><span class="search-text">{MAP_SEARCH}&nbsp;</span>
+					<form id="plz_search">
+						<select id="plz_choice">
+						   <option value="1">1</option>
+						   <option value="2">2</option>
+						   <option value="5">5</option>
+						   <option value="10">10</option>
+						   <option value="25">25</option>
+						   <option value="50">50</option>
+						   <option value="100">100</option>
+						</select>
+						&nbsp;km&nbsp;
+						<input class="button1" type="submit" value="{L_SUBMIT}" />
+					</form>
+				</div>
+				<div id="seperation_hr"></div>
+				<div id="solution"></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="forabg">
+		<div class="inner">
+			<ul class="topiclist">
+				<li class="header">
+					<dl class="row-item">
+						<dt>
+							<div class="list-inner">
+								{L_USERMAP}
+							</div>
+						</dt>
+					</dl>
+				</li>
+			</ul>
+		</div>
+		<div class="panel bg1">
+			<div id="map_container">
+			</div>
+		</div>
+	</div>
+
+	<div class="forabg">
+		<div class="inner">
+			<ul class="topiclist">
+				<li class="header">
+					<dl class="row-item">
+						<dt>
+							<div class="list-inner">
+								{L_USERMAP_LEGEND}
+							</div>
+						</dt>
+					</dl>
+				</li>
+			</ul>
+		</div>
+		<div class="panel bg1">
+			<div id="map-legend">
+				<p class="usermap_group_legend">{MAP_LEGEND}</p>
+				<p>{L_USERMAP_LEGEND_TEXT}<br><br>{MAP_USERS}</p>
+			</div>
+		</div>
+	</div>
+	<p class="usermap-thanks">{L_USERMAP_CREDENTIALS}<a href="http://www.geonames.org" target="_blank">www.geonames.org</a></p>
+
+	<!-- ELSE -->
+
+	<div class="forabg">
+		<div class="inner">
+			<ul class="topiclist">
+				<li class="header">
+					<dl class="row-item">
+						<dt>
+							<div class="list-inner">
+								{L_USERMAP}
+							</div>
+						</dt>
+					</dl>
+				</li>
+			</ul>
+		</div>
+		<div class="panel bg1">
+			<div>{L_USERMAP_NOT_AUTHORIZED}</div>
+		</div>
+	</div>
+
+	<!-- ENDIF -->
+
+
+	<!-- Übergabe Kartenkonfiguration (Geo. Breite und Länge der Kartenmitte, Zoom) -->
+	<script>
+		var jsConfig = {MAPCONFIG};
+		var jsServerConfig = {SERVERCONFIG};
+		var jsMapData = {MAPDATA};
+		var jsCurrentUser = {USER};
+		var jsMapResult = '{L_MAP_RESULT}';
+		var jsMapNoResult = '{L_MAP_NORESULT}';
+	</script>
+</div>
+
+<!-- INCLUDE overall_footer.html -->
